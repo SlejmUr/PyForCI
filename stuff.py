@@ -11,10 +11,10 @@ def GetAllStuff(value,count,merge):
   if merge == "1":
     #Yes, split!
     print("[GetAll] Splitting!")
-    TXT = "everything" + str(count) + ".txt"
+    TXT = "everything/everything" + str(count) + ".txt"
   else:
     print("[GetAll] Merge!")
-    TXT = "everything.txt"
+    TXT = "everything/everything.txt"
     
   a = open(TXT, "a",encoding="utf-8")
   a.close()
@@ -82,10 +82,10 @@ def ReadEnd(count,merge):
   if merge == "1":
     #Yes, split!
     print("[ReadEnd] Splitting!")
-    TXT = "everything" + str(count) + ".txt"
+    TXT = "everything/everything" + str(count) + ".txt"
   else:
     print("[ReadEnd] Merge!")
-    TXT = "everything.txt"
+    TXT = "everything/everything.txt"
 
 
   r = open(TXT, "r",encoding="utf-8")
@@ -106,12 +106,12 @@ def ReadToAllStuff(count,merge):
   if merge == "1":
     #Yes, split!
     print("[ReadToALL] Splitting!")
-    TXT = "everything" + str(count) + ".txt"
-    out = "out" + str(count) + ".txt"
+    TXT = "everything/everything" + str(count) + ".txt"
+    out = "out/out" + str(count) + ".txt"
   else:
     print("[ReadToALL] Merge!")
-    TXT = "everything.txt"
-    out = "out.txt"
+    TXT = "everything/everything.txt"
+    out = "out/out.txt"
   wf = open(TXT,"r",encoding='utf-8')
   wo = open(out, "w",encoding='utf-8')
   lines2 = wf.readlines()

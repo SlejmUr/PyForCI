@@ -11,8 +11,8 @@ tmp = -1
 
 for c_list, listnumb in enumerate(blacklist):
   print(listnumb,c_list)
-  if c_list <= 2:
-    input()
+  #if c_list <= 2:
+    #input()
   #if c_list < 8:
    # continue
   ## MAIN PAGE

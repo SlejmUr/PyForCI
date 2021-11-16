@@ -10,18 +10,20 @@ everythinglist = ["everything0","everything1","everything2","everything3","every
 #print("You want to merge it?\n[1] Split \t [0] Merge")
 #yes_no = input()
 out_number = False
+is_html = False
   # Change this to false if you dont
   # want to make tmp_o
 out_number = bool(int(input("Read to URL and write to tmp_o?\n1 to True, 0 to False : ")))
-
+is_html = bool(int(input("You want to save html too?\n1 to True,0 to False : ")))
 
 for count_elist, listvalue in enumerate(everythinglist):
   str_count_elist = str(count_elist)
-  r = open(listvalue+".txt", "r",encoding='utf-8')
+  r = open("everything/" + listvalue+".txt", "r",encoding='utf-8')
   lines = r.readlines()
-  w = open(listvalue+"_URL"+ str_count_elist +".txt", "w",encoding='utf-8')
-  tmpw = open("tmp_o" + str_count_elist + ".txt","w",encoding='utf-8')
-  #html = open("idk.html","w")
+  w = open("everything/" +listvalue+"_URL"+ str_count_elist +".txt", "w",encoding='utf-8')
+  tmpw = open("picture_number/picnumb_" + str_count_elist + ".txt","w",encoding='utf-8')
+  if is_html is True:
+    html = open("productpicturehtml/product" + str_count_elist + ".html","w",encoding='utf-8')
   x = 1
   lin = ""
   prev = ""
@@ -33,7 +35,7 @@ for count_elist, listvalue in enumerate(everythinglist):
     if line == "":
       continue
     if out_number is True:
-      cline = linecache.getline("out" + str_count_elist + ".txt", i+1)
+      cline = linecache.getline("picture_number/picnumb_" + str_count_elist + ".txt", i+1)
       fline = line[:1]
       plog(cline,i,fline)
       tmpw.write( fline+ "," + cline)
@@ -54,8 +56,9 @@ for count_elist, listvalue in enumerate(everythinglist):
         x += 1
         #lin = line
         w.write(line + "\n")
-        #trimline = line.rstrip(line[-1])
-        #html.write('<img height="100px" weight="100px" src="' + URL + trimline + '">')
+        if is_html is True:
+          #trimline = line.rstrip(line[-1])
+          html.write('<img height="100px" weight="100px" src="' + URL + line + '">\n')
       
       if (str(x-1) + " " + lin) != str(prev):
         if (x-1) == 0:
