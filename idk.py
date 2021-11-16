@@ -49,6 +49,8 @@ for count_elist, listvalue in enumerate(everythinglist):
       if line.__contains__("/produto/"):
         x = 1
         lin = str(line)
+        if is_html is True:
+          html.write("<br>\n")
         #print(line)
       if line.__contains__("produtos"):
         #/img/produtos/1029003.jpg
